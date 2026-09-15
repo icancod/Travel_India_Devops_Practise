@@ -3,143 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Explore India</title>
-    <meta name="description" content="Explore stunning photos of India's beautiful destinations.">
+    <title>Photo Gallery — Explore India's Splendors</title>
+    <meta name="description" content="Immerse yourself in our visual journey across Incredible India. Stunning photography of historical monuments, serene backwaters, and pristine tropical beaches.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
 <header id="main-header">
     <div class="header-top">
-        <div class="logo">
-            <span class="logo-icon">🇮🇳</span>
-            <span>Explore India</span>
-        </div>
+        <a href="index.html" class="logo" aria-label="Explore India Home">
+            <div class="logo-icon-wrap">
+                <span class="logo-icon">🇮🇳</span>
+            </div>
+            <div class="logo-text">
+                <span class="logo-title">Explore<span>India</span></span>
+                <span class="logo-sub">Incredible Escapes</span>
+            </div>
+        </a>
+
         <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
             <span></span>
             <span></span>
             <span></span>
         </div>
+
         <nav id="main-nav">
             <a href="index.html">Home</a>
             <a href="index.html#destinations">Destinations</a>
             <a href="gallery.html" class="active">Gallery</a>
             <a href="contact.html">Contact</a>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
         </nav>
     </div>
 </header>
 
-<section class="gallery-hero">
-    <h1>Photo Gallery</h1>
-    <p>A visual journey through the incredible landscapes of India</p>
+<!-- Gallery Hero -->
+<section class="page-hero">
+    <div class="hero-content">
+        <span class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>📸 Visual Chronicles</span>
+        </span>
+        <h1>India in Pictures</h1>
+        <p>A visual odyssey through timeless architectural wonders, tranquil emerald waterways, and sun-drenched coastal vistas.</p>
+    </div>
 </section>
 
-<div class="gallery-filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="heritage">Heritage</button>
-    <button class="filter-btn" data-filter="nature">Nature</button>
-    <button class="filter-btn" data-filter="beach">Beach</button>
+<!-- Gallery Section -->
+<div class="gallery-container">
+    <!-- Category Filter Chips -->
+    <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Captures (6)</button>
+        <button class="filter-tab" data-filter="heritage">🏛️ Heritage (2)</button>
+        <button class="filter-tab" data-filter="nature">🌿 Nature (2)</button>
+        <button class="filter-tab" data-filter="beach">🏖️ Beach (2)</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="gallery-grid">
+        <!-- Item 1: Taj Mahal Sunrise -->
+        <div class="gallery-item fade-in" data-category="heritage" onclick="openLightbox('images/tajmahal.jpg', 'Taj Mahal at Golden Sunrise — Agra, Uttar Pradesh')">
+            <img src="images/tajmahal.jpg" alt="Taj Mahal at Golden Sunrise" loading="lazy">
+            <div class="gallery-zoom-badge">🔍</div>
+            <div class="gallery-item-overlay">
+                <strong>Taj Mahal at Sunrise</strong>
+                <span>📍 Agra, Uttar Pradesh • Mughal Heritage</span>
+            </div>
+        </div>
+
+        <!-- Item 2: Kerala Backwaters -->
+        <div class="gallery-item fade-in" data-category="nature" onclick="openLightbox('images/kerala.jpg', 'Kerala Backwaters Lagoon — Alleppey, God\'s Own Country')">
+            <img src="images/kerala.jpg" alt="Kerala Backwaters Lagoon" loading="lazy">
+            <div class="gallery-zoom-badge">🔍</div>
+            <div class="gallery-item-overlay">
+                <strong>Emerald Backwaters</strong>
+                <span>📍 Alleppey, Kerala • Palm Canal Vista</span>
+            </div>
+        </div>
+
+        <!-- Item 3: Goa Beach Coastline -->
+        <div class="gallery-item fade-in" data-category="beach" onclick="openLightbox('images/goa.jpeg', 'Goa Sunset Shoreline — Palolem Beach, South Goa')">
+            <img src="images/goa.jpeg" alt="Goa Sunset Shoreline" loading="lazy">
+            <div class="gallery-zoom-badge">🔍</div>
+            <div class="gallery-item-overlay">
+                <strong>Golden Sands of Goa</strong>
+                <span>📍 South Goa • Arabian Sea Sunset</span>
+            </div>
+        </div>
+
+        <!-- Item 4: Taj Mahal Gardens -->
+        <div class="gallery-item fade-in" data-category="heritage" onclick="openLightbox('images/tajmahal.jpg', 'Reflecting Pools & Charbagh Gardens — Taj Mahal Complex')">
+            <img src="images/tajmahal.jpg" alt="Reflecting Pools & Charbagh Gardens" loading="lazy">
+            <div class="gallery-zoom-badge">🔍</div>
+            <div class="gallery-item-overlay">
+                <strong>Reflecting Pools & Charbagh</strong>
+                <span>📍 Agra, Uttar Pradesh • Architectural Symmetry</span>
+            </div>
+        </div>
+
+        <!-- Item 5: Kerala Palms -->
+        <div class="gallery-item fade-in" data-category="nature" onclick="openLightbox('images/kerala.jpg', 'Houseboat Sailing through Tropical Canals — Kumarakom, Kerala')">
+            <img src="images/kerala.jpg" alt="Houseboat Sailing through Tropical Canals" loading="lazy">
+            <div class="gallery-zoom-badge">🔍</div>
+            <div class="gallery-item-overlay">
+                <strong>Serene Houseboat Journey</strong>
+                <span>📍 Kumarakom, Kerala • Tropical Bliss</span>
+            </div>
+        </div>
+
+        <!-- Item 6: Goa Coastline Breeze -->
+        <div class="gallery-item fade-in" data-category="beach" onclick="openLightbox('images/goa.jpeg', 'Vagator Cliffside Ocean View — North Goa')">
+            <img src="images/goa.jpeg" alt="Vagator Cliffside Ocean View" loading="lazy">
+            <div class="gallery-zoom-badge">🔍</div>
+            <div class="gallery-item-overlay">
+                <strong>Coastal Breezes & Cliffs</strong>
+                <span>📍 Vagator, Goa • Palm Fringed Haven</span>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="gallery-grid" id="gallery-grid">
-    <div class="gallery-item fade-in" data-category="heritage" onclick="openLightbox('images/tajmahal.jpg', 'Taj Mahal at Sunrise')">
-        <img src="images/tajmahal.jpg" alt="Taj Mahal" loading="lazy">
-        <div class="gallery-item-overlay">
-            <strong>Taj Mahal</strong>
-            <span>Agra, Uttar Pradesh</span>
-        </div>
-    </div>
-    <div class="gallery-item fade-in" data-category="nature" onclick="openLightbox('images/kerala.jpg', 'Kerala Backwaters')">
-        <img src="images/kerala.jpg" alt="Kerala Backwaters" loading="lazy">
-        <div class="gallery-item-overlay">
-            <strong>Kerala Backwaters</strong>
-            <span>Kerala</span>
-        </div>
-    </div>
-    <div class="gallery-item fade-in" data-category="beach" onclick="openLightbox('images/goa.jpeg', 'Goa Beach')">
-        <img src="images/goa.jpeg" alt="Goa Beach" loading="lazy">
-        <div class="gallery-item-overlay">
-            <strong>Goa Beach</strong>
-            <span>Goa</span>
-        </div>
-    </div>
-    <div class="gallery-item fade-in" data-category="heritage" onclick="openLightbox('images/tajmahal.jpg', 'Taj Mahal Gardens')">
-        <img src="images/tajmahal.jpg" alt="Taj Mahal Gardens" loading="lazy">
-        <div class="gallery-item-overlay">
-            <strong>Taj Mahal Gardens</strong>
-            <span>Agra, Uttar Pradesh</span>
-        </div>
-    </div>
-    <div class="gallery-item fade-in" data-category="nature" onclick="openLightbox('images/kerala.jpg', 'Kerala Landscape')">
-        <img src="images/kerala.jpg" alt="Kerala Landscape" loading="lazy">
-        <div class="gallery-item-overlay">
-            <strong>Kerala Landscape</strong>
-            <span>Kerala</span>
-        </div>
-    </div>
-    <div class="gallery-item fade-in" data-category="beach" onclick="openLightbox('images/goa.jpeg', 'Goa Coastline')">
-        <img src="images/goa.jpeg" alt="Goa Coastline" loading="lazy">
-        <div class="gallery-item-overlay">
-            <strong>Goa Coastline</strong>
-            <span>Goa</span>
-        </div>
-    </div>
-</div>
-
+<!-- Footer -->
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
-            <h3>🇮🇳 Explore India</h3>
-            <p>Discover the incredible beauty, culture, and heritage of India with our curated travel experiences.</p>
+            <div class="logo">
+                <div class="logo-icon-wrap">
+                    <span class="logo-icon">🇮🇳</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Explore<span>India</span></span>
+                    <span class="logo-sub">Incredible Escapes</span>
+                </div>
+            </div>
+            <p>Empowering discerning travelers to explore India's vibrant colors, ancient heritage, and pristine landscapes with authentic care and luxury comfort.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+                <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+                <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+                <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+            </div>
         </div>
+
         <div class="footer-links">
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#destinations">Destinations</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html">Concierge & Contact</a></li>
             </ul>
         </div>
+
         <div class="footer-links">
-            <h4>Destinations</h4>
+            <h4>Featured Regions</h4>
             <ul>
-                <li><a href="index.html#destinations">Taj Mahal</a></li>
-                <li><a href="index.html#destinations">Kerala</a></li>
-                <li><a href="index.html#destinations">Goa</a></li>
-                <li><a href="index.html#destinations">Rajasthan</a></li>
+                <li><a href="index.html#destinations">Taj Mahal & Agra</a></li>
+                <li><a href="index.html#destinations">Kerala Backwaters</a></li>
+                <li><a href="index.html#destinations">Goa Coastal Paradises</a></li>
+                <li><a href="index.html#destinations">Rajasthan Fortresses</a></li>
             </ul>
         </div>
+
         <div class="footer-links">
-            <h4>Support</h4>
+            <h4>Support & Help</h4>
             <ul>
-                <li><a href="contact.html">Help Center</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li><a href="contact.html">Plan a Custom Journey</a></li>
+                <li><a href="contact.html">Travel Assistance Desk</a></li>
+                <li><a href="#">Visa Guidelines</a></li>
+                <li><a href="#">Tourist Helpline: 1363</a></li>
             </ul>
         </div>
     </div>
+
     <div class="footer-bottom">
-        <p>&copy; 2026 Explore India. All rights reserved. Made with ❤️ for Incredible India.</p>
+        <p>&copy; 2026 Explore India. All rights reserved. Crafted with ❤️ for Incredible India.</p>
+        <p>Authorized Tour Operator • Ministry of Tourism</p>
     </div>
 </footer>
 
-<div class="lightbox-overlay" id="lightbox">
+<!-- Lightbox Modal -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-hidden="true">
     <div class="lightbox-content">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image">&times;</button>
         <img src="" alt="" id="lightbox-img">
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 </div>
 
+<!-- Scroll to top button -->
 <button class="scroll-top" id="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
 
 <script src="./scripts/script.js"></script>
 <script>
     // Gallery filter functionality
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterBtns = document.querySelectorAll('.filter-tab');
     const galleryItems = document.querySelectorAll('.gallery-item');
 
     filterBtns.forEach(btn => {

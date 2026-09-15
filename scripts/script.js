@@ -1,43 +1,8 @@
-// ===== WELCOME MESSAGE =====
-function showWelcome() {
-    const overlay = document.createElement('div');
-    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:3000;display:flex;align-items:center;justify-content:center;animation:fadeIn 0.3s ease';
+// ==========================================================================
+// TRAVEL INDIA — INTERACTIVE JAVASCRIPT
+// ==========================================================================
 
-    const modal = document.createElement('div');
-    modal.style.cssText = 'background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:fadeInUp 0.4s ease';
-    modal.innerHTML = `
-        <div style="font-size:3rem;margin-bottom:16px">🇮🇳</div>
-        <h2 style="margin-bottom:12px;color:#212529;font-size:1.6rem">Welcome to Incredible India!</h2>
-        <p style="color:#6c757d;margin-bottom:24px;line-height:1.6">Discover the magic of India's rich heritage, breathtaking landscapes, and vibrant culture. Your adventure begins here.</p>
-        <button onclick="this.closest('div[style]').parentElement.remove()" style="padding:12px 36px;background:#ff9933;color:white;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s" onmouseover="this.style.background='#e68a2e'" onmouseout="this.style.background='#ff9933'">Start Exploring</button>
-    `;
-
-    overlay.appendChild(modal);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) overlay.remove();
-    });
-    document.body.appendChild(overlay);
-}
-
-// ===== MOBILE MENU =====
-const hamburger = document.getElementById('hamburger');
-const mainNav = document.getElementById('main-nav');
-
-if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mainNav.classList.toggle('active');
-    });
-
-    document.querySelectorAll('#main-nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mainNav.classList.remove('active');
-        });
-    });
-}
-
-// ===== DARK MODE =====
+// ===== DARK / LIGHT THEME TOGGLE =====
 const themeToggle = document.getElementById('theme-toggle');
 const html = document.documentElement;
 
@@ -46,6 +11,7 @@ function setTheme(theme) {
     localStorage.setItem('theme', theme);
     if (themeToggle) {
         themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     }
 }
 
@@ -59,40 +25,112 @@ if (themeToggle) {
     });
 }
 
+// ===== MOBILE NAVIGATION MENU =====
+const hamburger = document.getElementById('hamburger');
+const mainNav = document.getElementById('main-nav');
+
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        const isActive = hamburger.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
+    });
+
+    document.querySelectorAll('#main-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
 // ===== HEADER SCROLL EFFECT =====
 const header = document.getElementById('main-header');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+if (header) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
 
 // ===== SCROLL TO TOP BUTTON =====
 const scrollTopBtn = document.getElementById('scroll-top');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
-    }
-});
+if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 350) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+}
 
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ===== LIGHTBOX =====
+// ===== HERO SEARCH WIDGET =====
+function executeHeroSearch() {
+    const destSelect = document.getElementById('search-destination');
+    const selectedCategory = destSelect ? destSelect.value : 'all';
+
+    // Find destination section
+    const destSection = document.getElementById('destinations');
+    if (destSection) {
+        destSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Trigger tab filter matching destination
+    const tab = document.querySelector(`.filter-tab[data-category="${selectedCategory}"]`) || 
+                document.querySelector('.filter-tab[data-category="all"]');
+    if (tab) {
+        filterDestinations(selectedCategory, tab);
+    }
+}
+
+// ===== DESTINATION CARD FILTERING (INDEX.HTML) =====
+function filterDestinations(category, tabElement) {
+    const tabs = document.querySelectorAll('.filter-tabs .filter-tab');
+    tabs.forEach(t => t.classList.remove('active'));
+    if (tabElement) {
+        tabElement.classList.add('active');
+    }
+
+    const cards = document.querySelectorAll('#destinations-grid .card');
+    cards.forEach(card => {
+        const type = card.getAttribute('data-type');
+        if (category === 'all' || type === category) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 30);
+        } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(15px)';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 250);
+        }
+    });
+}
+
+// ===== LIGHTBOX VIEWER =====
 function openLightbox(src, caption) {
     const lightbox = document.getElementById('lightbox');
     const img = document.getElementById('lightbox-img');
     const cap = document.getElementById('lightbox-caption');
+
     if (lightbox && img && cap) {
         img.src = src;
-        img.alt = caption;
-        cap.textContent = caption;
+        img.alt = caption || 'Explore India Travel Photograph';
+        cap.textContent = caption || '';
         lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     }
 }
@@ -101,50 +139,57 @@ function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     }
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
 });
 
 const lightboxOverlay = document.getElementById('lightbox');
 if (lightboxOverlay) {
     lightboxOverlay.addEventListener('click', (e) => {
-        if (e.target === lightboxOverlay) closeLightbox();
+        if (e.target === lightboxOverlay) {
+            closeLightbox();
+        }
     });
 }
 
-// ===== SCROLL ANIMATIONS (Intersection Observer) =====
+// ===== INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS =====
 const fadeElements = document.querySelectorAll('.fade-in');
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            fadeObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+if (fadeElements.length > 0) {
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-fadeElements.forEach(el => fadeObserver.observe(el));
+    fadeElements.forEach(el => fadeObserver.observe(el));
+}
 
-// ===== COUNTER ANIMATION =====
+// ===== ANIMATED STATS COUNTER =====
 function animateCounters() {
     const counters = document.querySelectorAll('[data-target]');
     counters.forEach(counter => {
         if (counter.dataset.animated) return;
-        const target = parseInt(counter.dataset.target);
-        const duration = 2000;
-        const start = 0;
+        const target = parseInt(counter.dataset.target, 10);
+        const duration = 1800;
         const startTime = performance.now();
 
         function update(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(start + (target - start) * eased);
+            const current = Math.floor(target * eased);
             counter.textContent = current.toLocaleString() + '+';
+
             if (progress < 1) {
                 requestAnimationFrame(update);
             } else {
@@ -164,23 +209,63 @@ if (statsSection) {
                 statsObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.4 });
     statsObserver.observe(statsSection);
 }
+
+// ===== FAQ ACCORDION (CONTACT.HTML) =====
+const faqQuestions = document.querySelectorAll('.faq-question');
+faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('active');
+
+        // Close all others
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+        if (!isOpen) {
+            item.classList.add('active');
+        }
+    });
+});
 
 // ===== NEWSLETTER FORM =====
 function handleNewsletter(e) {
     e.preventDefault();
-    const input = e.target.querySelector('input');
-    const email = input.value;
+    const form = e.target;
+    const input = form.querySelector('input');
+    const btn = form.querySelector('button');
+    const originalText = btn.textContent;
 
-    const btn = e.target.querySelector('button');
     btn.textContent = 'Subscribed ✓';
-    btn.style.background = '#138808';
+    btn.style.background = 'linear-gradient(135deg, #0A8F78, #046A58)';
     input.value = '';
 
     setTimeout(() => {
-        btn.textContent = 'Subscribe';
+        btn.textContent = originalText;
         btn.style.background = '';
-    }, 3000);
+    }, 3500);
+}
+
+// ===== CONTACT FORM =====
+function handleContactForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('#contact-submit-btn') || form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+
+    btn.textContent = 'Sending Inquiry...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+        btn.textContent = 'Inquiry Received! A Curator Will Contact You ✓';
+        btn.style.background = 'linear-gradient(135deg, #0A8F78, #046A58)';
+        form.reset();
+
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+        }, 4000);
+    }, 1200);
 }
