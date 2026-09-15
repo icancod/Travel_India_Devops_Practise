@@ -3,169 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Explore India</title>
-    <meta name="description" content="Get in touch with Explore India for bookings, inquiries, and travel assistance.">
+    <title>Contact & Concierge — Explore India</title>
+    <meta name="description" content="Reach our dedicated travel concierge team for personalized travel planning, booking inquiries, private guide services, and emergency travel support across India.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
 <header id="main-header">
     <div class="header-top">
-        <div class="logo">
-            <span class="logo-icon">🇮🇳</span>
-            <span>Explore India</span>
-        </div>
+        <a href="index.html" class="logo" aria-label="Explore India Home">
+            <div class="logo-icon-wrap">
+                <span class="logo-icon">🇮🇳</span>
+            </div>
+            <div class="logo-text">
+                <span class="logo-title">Explore<span>India</span></span>
+                <span class="logo-sub">Incredible Escapes</span>
+            </div>
+        </a>
+
         <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
             <span></span>
             <span></span>
             <span></span>
         </div>
+
         <nav id="main-nav">
             <a href="index.html">Home</a>
             <a href="index.html#destinations">Destinations</a>
             <a href="gallery.html">Gallery</a>
             <a href="contact.html" class="active">Contact</a>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
         </nav>
     </div>
 </header>
 
-<section class="contact-hero">
-    <h1>Get In Touch</h1>
-    <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+<!-- Contact Hero -->
+<section class="page-hero">
+    <div class="hero-content">
+        <span class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>💬 Travel Concierge</span>
+        </span>
+        <h1>Begin Your Indian Odyssey</h1>
+        <p>Whether you're dreaming of sunrise at the Taj Mahal, backwater retreats in Kerala, or sun-drenched beaches in Goa, our travel curators are here to make it effortless.</p>
+    </div>
 </section>
 
-<section class="contact-section">
-    <div class="contact-info fade-in">
-        <h3>Contact Information</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 10px;">Have questions? Reach out through any of these channels.</p>
+<!-- Contact Main Section -->
+<div class="contact-wrapper">
+    <!-- Left Column: Concierge Info & FAQ -->
+    <div class="contact-concierge fade-in">
+        <div class="concierge-status-card">
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span>Travel Desk Online Now</span>
+            </div>
+            <h3>Direct Travel Advisory</h3>
+            <p>Our travel specialists are based across New Delhi, Mumbai, and Kochi. Average response time during business hours is under 20 minutes.</p>
+        </div>
 
-        <div class="info-item">
-            <div class="info-icon">📍</div>
-            <div class="info-text">
-                <h4>Our Office</h4>
-                <p>123 Travel Lane, New Delhi, India 110001</p>
+        <div class="contact-cards-grid">
+            <div class="info-card">
+                <div class="info-icon">📍</div>
+                <h4>Headquarters</h4>
+                <p>123 Connaught Place, New Delhi, India 110001</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">📞</div>
+                <h4>Direct Phone</h4>
+                <p>+91 (011) 4567 8900<br>+91 98765 43210 (WhatsApp)</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">✉️</div>
+                <h4>Email Desk</h4>
+                <p>concierge@exploreindia.com<br>bookings@exploreindia.com</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">🕒</div>
+                <h4>Service Hours</h4>
+                <p>Mon - Sat: 9:00 AM - 8:00 PM IST<br>24/7 On-Trip Emergency Support</p>
             </div>
         </div>
-        <div class="info-item">
-            <div class="info-icon">📞</div>
-            <div class="info-text">
-                <h4>Phone</h4>
-                <p>+91 123 456 7890</p>
+
+        <!-- FAQ Accordion -->
+        <div class="faq-box">
+            <h4>Frequently Asked Questions</h4>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>What is the best time of year to visit India?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    October through March offers pleasant, dry weather across most of India, making it ideal for the Golden Triangle, Rajasthan, and Goa. Kerala is magnificent year-round, especially during the monsoon (June–August) for traditional Ayurveda treatments.
+                </div>
             </div>
-        </div>
-        <div class="info-item">
-            <div class="info-icon">✉️</div>
-            <div class="info-text">
-                <h4>Email</h4>
-                <p>hello@exploreindia.com</p>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Can our itinerary be completely customized?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes, absolutely! Every journey can be tailored with private chauffeured cars, boutique heritage stays, dietary preferences, and private expert guides.
+                </div>
             </div>
-        </div>
-        <div class="info-item">
-            <div class="info-icon">🕐</div>
-            <div class="info-text">
-                <h4>Working Hours</h4>
-                <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Do you assist with domestic flights and trains?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes, we handle all internal transit including luxury train experiences (such as Maharajas' Express), inter-state flights, and comfortable private transfers.
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="contact-form fade-in" id="contact-form-container">
-        <h3 style="margin-bottom: 24px;">Send Us a Message</h3>
+    <!-- Right Column: Booking & Inquiry Form -->
+    <div class="contact-form-container fade-in">
+        <span class="section-tag">Start Planning</span>
+        <h3>Request a Custom Itinerary</h3>
+        <p class="form-sub">Share your travel preferences and we will curate a personalized itinerary with transparent pricing within 24 hours.</p>
+
         <form id="contact-form" onsubmit="handleContactForm(event)">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Your Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="e.g. John Anderson" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone / WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Preferred Region *</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select a region</option>
+                        <option value="golden-triangle">Golden Triangle (Delhi, Agra, Jaipur)</option>
+                        <option value="kerala">Kerala Backwaters & Hills</option>
+                        <option value="goa">Goa Coastal & Heritage</option>
+                        <option value="rajasthan">Royal Rajasthan Palaces</option>
+                        <option value="multi">Custom Multi-Region Journey</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="duration">Trip Duration</label>
+                    <select id="duration" name="duration">
+                        <option value="short">3 to 5 Days</option>
+                        <option value="medium" selected>1 to 2 Weeks</option>
+                        <option value="long">2+ Weeks Extended</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="travelers">Number of Travelers</label>
+                    <select id="travelers" name="travelers">
+                        <option value="solo">Solo Traveler (1)</option>
+                        <option value="couple" selected>Couple (2)</option>
+                        <option value="family">Family (3 - 5)</option>
+                        <option value="group">Private Group (6+)</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="message">Tell Us About Your Dream Trip *</label>
+                    <textarea id="message" name="message" placeholder="Include your preferred travel dates, interests (e.g. architecture, food, wellness), and any special requirements..." required></textarea>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject" name="subject" required>
-                    <option value="">Select a subject</option>
-                    <option value="booking">Booking Inquiry</option>
-                    <option value="general">General Question</option>
-                    <option value="feedback">Feedback</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
-            </div>
-            <button type="submit">Send Message</button>
+
+            <button type="submit" class="form-submit-btn" id="contact-submit-btn">Send Travel Inquiry →</button>
         </form>
     </div>
-</section>
+</div>
 
+<!-- Footer -->
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
-            <h3>🇮🇳 Explore India</h3>
-            <p>Discover the incredible beauty, culture, and heritage of India with our curated travel experiences.</p>
+            <div class="logo">
+                <div class="logo-icon-wrap">
+                    <span class="logo-icon">🇮🇳</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Explore<span>India</span></span>
+                    <span class="logo-sub">Incredible Escapes</span>
+                </div>
+            </div>
+            <p>Empowering discerning travelers to explore India's vibrant colors, ancient heritage, and pristine landscapes with authentic care and luxury comfort.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+                <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+                <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+                <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+            </div>
         </div>
+
         <div class="footer-links">
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#destinations">Destinations</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html">Concierge & Contact</a></li>
             </ul>
         </div>
+
         <div class="footer-links">
-            <h4>Destinations</h4>
+            <h4>Featured Regions</h4>
             <ul>
-                <li><a href="index.html#destinations">Taj Mahal</a></li>
-                <li><a href="index.html#destinations">Kerala</a></li>
-                <li><a href="index.html#destinations">Goa</a></li>
-                <li><a href="index.html#destinations">Rajasthan</a></li>
+                <li><a href="index.html#destinations">Taj Mahal & Agra</a></li>
+                <li><a href="index.html#destinations">Kerala Backwaters</a></li>
+                <li><a href="index.html#destinations">Goa Coastal Paradises</a></li>
+                <li><a href="index.html#destinations">Rajasthan Fortresses</a></li>
             </ul>
         </div>
+
         <div class="footer-links">
-            <h4>Support</h4>
+            <h4>Support & Help</h4>
             <ul>
-                <li><a href="contact.html">Help Center</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li><a href="contact.html">Plan a Custom Journey</a></li>
+                <li><a href="contact.html">Travel Assistance Desk</a></li>
+                <li><a href="#">Visa Guidelines</a></li>
+                <li><a href="#">Tourist Helpline: 1363</a></li>
             </ul>
         </div>
     </div>
+
     <div class="footer-bottom">
-        <p>&copy; 2026 Explore India. All rights reserved. Made with ❤️ for Incredible India.</p>
+        <p>&copy; 2026 Explore India. All rights reserved. Crafted with ❤️ for Incredible India.</p>
+        <p>Authorized Tour Operator • Ministry of Tourism</p>
     </div>
 </footer>
 
+<!-- Scroll to top button -->
 <button class="scroll-top" id="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
 
 <script src="./scripts/script.js"></script>
-<script>
-    function handleContactForm(e) {
-        e.preventDefault();
-        const form = e.target;
-        const btn = form.querySelector('button');
-        const originalText = btn.textContent;
-
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-
-        setTimeout(() => {
-            btn.textContent = 'Message Sent ✓';
-            btn.style.background = '#138808';
-            form.reset();
-
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 3000);
-        }, 1200);
-    }
-</script>
 
 </body>
 </html>
