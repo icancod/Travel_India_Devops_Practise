@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Explore India</title>
+    <meta name="description" content="Explore stunning photos of India's beautiful destinations.">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header id="main-header">
+    <div class="header-top">
+        <div class="logo">
+            <span class="logo-icon">🇮🇳</span>
+            <span>Explore India</span>
+        </div>
+        <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="index.html#destinations">Destinations</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </div>
+</header>
+
+<section class="gallery-hero">
+    <h1>Photo Gallery</h1>
+    <p>A visual journey through the incredible landscapes of India</p>
+</section>
+
+<div class="gallery-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="heritage">Heritage</button>
+    <button class="filter-btn" data-filter="nature">Nature</button>
+    <button class="filter-btn" data-filter="beach">Beach</button>
+</div>
+
+<div class="gallery-grid" id="gallery-grid">
+    <div class="gallery-item fade-in" data-category="heritage" onclick="openLightbox('images/tajmahal.jpg', 'Taj Mahal at Sunrise')">
+        <img src="images/tajmahal.jpg" alt="Taj Mahal" loading="lazy">
+        <div class="gallery-item-overlay">
+            <strong>Taj Mahal</strong>
+            <span>Agra, Uttar Pradesh</span>
+        </div>
+    </div>
+    <div class="gallery-item fade-in" data-category="nature" onclick="openLightbox('images/kerala.jpg', 'Kerala Backwaters')">
+        <img src="images/kerala.jpg" alt="Kerala Backwaters" loading="lazy">
+        <div class="gallery-item-overlay">
+            <strong>Kerala Backwaters</strong>
+            <span>Kerala</span>
+        </div>
+    </div>
+    <div class="gallery-item fade-in" data-category="beach" onclick="openLightbox('images/goa.jpeg', 'Goa Beach')">
+        <img src="images/goa.jpeg" alt="Goa Beach" loading="lazy">
+        <div class="gallery-item-overlay">
+            <strong>Goa Beach</strong>
+            <span>Goa</span>
+        </div>
+    </div>
+    <div class="gallery-item fade-in" data-category="heritage" onclick="openLightbox('images/tajmahal.jpg', 'Taj Mahal Gardens')">
+        <img src="images/tajmahal.jpg" alt="Taj Mahal Gardens" loading="lazy">
+        <div class="gallery-item-overlay">
+            <strong>Taj Mahal Gardens</strong>
+            <span>Agra, Uttar Pradesh</span>
+        </div>
+    </div>
+    <div class="gallery-item fade-in" data-category="nature" onclick="openLightbox('images/kerala.jpg', 'Kerala Landscape')">
+        <img src="images/kerala.jpg" alt="Kerala Landscape" loading="lazy">
+        <div class="gallery-item-overlay">
+            <strong>Kerala Landscape</strong>
+            <span>Kerala</span>
+        </div>
+    </div>
+    <div class="gallery-item fade-in" data-category="beach" onclick="openLightbox('images/goa.jpeg', 'Goa Coastline')">
+        <img src="images/goa.jpeg" alt="Goa Coastline" loading="lazy">
+        <div class="gallery-item-overlay">
+            <strong>Goa Coastline</strong>
+            <span>Goa</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>🇮🇳 Explore India</h3>
+            <p>Discover the incredible beauty, culture, and heritage of India with our curated travel experiences.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#destinations">Destinations</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Destinations</h4>
+            <ul>
+                <li><a href="index.html#destinations">Taj Mahal</a></li>
+                <li><a href="index.html#destinations">Kerala</a></li>
+                <li><a href="index.html#destinations">Goa</a></li>
+                <li><a href="index.html#destinations">Rajasthan</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Help Center</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Explore India. All rights reserved. Made with ❤️ for Incredible India.</p>
+    </div>
+</footer>
+
+<div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+</div>
+
+<button class="scroll-top" id="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
+
+<script src="./scripts/script.js"></script>
+<script>
+    // Gallery filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.dataset.category === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
