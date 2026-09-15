@@ -1,53 +1,236 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="light">
 <head>
-    <title>Explore India</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore India - Discover Incredible India</title>
+    <meta name="description" content="Explore the beauty of Incredible India - from the Taj Mahal to Kerala Backwaters and Goa Beaches.">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-<header>
-    <h1>Explore India!!</h1>
+<header id="main-header">
+    <div class="header-top">
+        <div class="logo">
+            <span class="logo-icon">🇮🇳</span>
+            <span>Explore India</span>
+        </div>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Places</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="#">Contact</a>
-    </nav>
+        <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </div>
 </header>
 
-<section class="hero">
-    <h2>Discover Incredible India</h2>
-    <p>Experience culture, heritage and nature.</p>
-
-    <button onclick="showMessage()">
-        Explore More
-    </button>
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Discover Incredible India</h1>
+        <p>Experience the rich culture, breathtaking heritage, and stunning natural beauty of India. Your journey of a lifetime starts here.</p>
+        <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="showWelcome()">
+                Explore More
+            </button>
+            <a href="#destinations" class="btn btn-outline">
+                View Destinations
+            </a>
+        </div>
+    </div>
 </section>
 
-<section class="places">
-
-    <div class="card">
-        <h3>Taj Mahal</h3>
-        <p>Agra, Uttar Pradesh</p>
+<section class="section" id="destinations">
+    <div class="section-header fade-in">
+        <h2>Popular Destinations</h2>
+        <p>Explore the most iconic and breathtaking places across India</p>
+        <div class="section-divider"></div>
     </div>
 
-    <div class="card">
-        <h3>Kerala Backwaters</h3>
-        <p>God's Own Country</p>
-    </div>
+    <div class="places-grid">
+        <div class="card fade-in" onclick="openLightbox('images/tajmahal.jpg', 'Taj Mahal - A Wonder of the World')">
+            <div class="card-image-wrapper">
+                <img src="images/tajmahal.jpg" alt="Taj Mahal" class="card-image" loading="lazy">
+                <span class="card-badge">Heritage</span>
+            </div>
+            <div class="card-body">
+                <h3>Taj Mahal</h3>
+                <div class="location">📍 Agra, Uttar Pradesh</div>
+                <p>An ivory-white marble mausoleum and one of the Seven Wonders of the World. A timeless symbol of love and architectural brilliance.</p>
+            </div>
+            <div class="card-footer">
+                <span class="card-rating">★★★★★ 4.9</span>
+                <span class="card-link">Learn More →</span>
+            </div>
+        </div>
 
-    <div class="card">
-        <h3>Goa Beaches</h3>
-        <p>Sun, Sand and Sea</p>
-    </div>
+        <div class="card fade-in" onclick="openLightbox('images/kerala.jpg', 'Kerala Backwaters - Gods Own Country')">
+            <div class="card-image-wrapper">
+                <img src="images/kerala.jpg" alt="Kerala Backwaters" class="card-image" loading="lazy">
+                <span class="card-badge">Nature</span>
+            </div>
+            <div class="card-body">
+                <h3>Kerala Backwaters</h3>
+                <div class="location">📍 Kerala</div>
+                <p>God's Own Country offers serene backwaters, lush greenery, and traditional houseboat experiences that rejuvenate the soul.</p>
+            </div>
+            <div class="card-footer">
+                <span class="card-rating">★★★★★ 4.8</span>
+                <span class="card-link">Learn More →</span>
+            </div>
+        </div>
 
+        <div class="card fade-in" onclick="openLightbox('images/goa.jpeg', 'Goa Beaches - Sun Sand and Sea')">
+            <div class="card-image-wrapper">
+                <img src="images/goa.jpeg" alt="Goa Beaches" class="card-image" loading="lazy">
+                <span class="card-badge">Beach</span>
+            </div>
+            <div class="card-body">
+                <h3>Goa Beaches</h3>
+                <div class="location">📍 Goa</div>
+                <p>Sun, sand, and sea await you at India's beach paradise. Vibrant nightlife, historic churches, and golden coastlines.</p>
+            </div>
+            <div class="card-footer">
+                <span class="card-rating">★★★★☆ 4.7</span>
+                <span class="card-link">Learn More →</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about section" id="about">
+    <div class="about-grid">
+        <div class="fade-in">
+            <h3>Why Travel With Us?</h3>
+            <p>We curate the most authentic and unforgettable travel experiences across India. From ancient monuments to serene backwaters, we ensure every journey is seamless and enriching.</p>
+            <p>Our expert local guides, handpicked accommodations, and personalized itineraries make us the preferred choice for travelers seeking the real India.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <span class="stat-label">Destinations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="10000">0</span>
+                    <span class="stat-label">Happy Travelers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Tour Packages</span>
+                </div>
+            </div>
+        </div>
+        <div class="fade-in">
+            <img src="images/kerala.jpg" alt="Kerala Backwaters" class="about-image">
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="section-header fade-in">
+        <h2>What Travelers Say</h2>
+        <p>Real experiences from our happy travelers</p>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card fade-in">
+            <p>"An absolutely magical experience! The Taj Mahal tour was perfectly organized and our guide was incredibly knowledgeable."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">S</div>
+                <div class="author-info">
+                    <strong>Sarah Mitchell</strong>
+                    <span>London, UK</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card fade-in">
+            <p>"Kerala was a dream come true. The houseboat ride through the backwaters was the highlight of our trip. Highly recommended!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">R</div>
+                <div class="author-info">
+                    <strong>Rajesh Kumar</strong>
+                    <span>Mumbai, India</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card fade-in">
+            <p>"Goa was the perfect getaway. Beautiful beaches, amazing food, and wonderful hospitality. Will definitely come back!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">E</div>
+                <div class="author-info">
+                    <strong>Emily Chen</strong>
+                    <span>Singapore</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+    <div class="section-header fade-in">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to get the latest travel deals and updates</p>
+        <div class="section-divider"></div>
+    </div>
+    <form class="newsletter-form fade-in" onsubmit="handleNewsletter(event)">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+    </form>
 </section>
 
 <footer>
-    <p>© 2026 Explore India</p>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>🇮🇳 Explore India</h3>
+            <p>Discover the incredible beauty, culture, and heritage of India with our curated travel experiences.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Destinations</h4>
+            <ul>
+                <li><a href="#destinations">Taj Mahal</a></li>
+                <li><a href="#destinations">Kerala</a></li>
+                <li><a href="#destinations">Goa</a></li>
+                <li><a href="#destinations">Rajasthan</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Help Center</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Explore India. All rights reserved. Made with ❤️ for Incredible India.</p>
+    </div>
 </footer>
+
+<div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+</div>
+
+<button class="scroll-top" id="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
 
 <script src="./scripts/script.js"></script>
 
